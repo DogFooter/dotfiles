@@ -25,7 +25,11 @@ Plugin 'davidhalter/jedi-vim' " for python autocomplete
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
+Plugin 'tpope/vim-surround'
+Plugin 'fatih/vim-go'
+Plugin 'Valloric/YouCompleteMe' 
+Plugin 'mattn/emmet-vim'
+Plugin 'vim-scripts/tComment'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -46,6 +50,8 @@ filetype plugin indent on    " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Editor Setting
+
+set bs=2 " for delete with backspace
 
 set nocompatible " only vIM
 set autoindent
@@ -72,6 +78,12 @@ au BufReadPost *
 \ exe "norm g`\"" |
 \ endif
 
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 set laststatus=2
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 
@@ -79,3 +91,16 @@ set visualbell
 
 filetype indent on
 filetype plugin indent on
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+nnoremap <leader>g :YcmCompleter GoTo<CR>
+nnoremap <leader>gg :YcmCompleter GoToImprecise<CR>
+nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>t :YcmCompleter GetType<CR>
+nnoremap <leader>p :YcmCompleter GetParent<CR>
