@@ -17,19 +17,32 @@ Plugin 'VundleVim/Vundle.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "My Custom Installed Plugins
 
+" basic
 Plugin 'scrooloose/nerdtree'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'davidhalter/jedi-vim' " for python autocomplete
 Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'tpope/vim-surround'
-Plugin 'fatih/vim-go'
-Plugin 'Valloric/YouCompleteMe' 
+"
+" Web
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/tComment'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'magarcia/vim-angular2-snippets'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+"
+" python
+Plugin 'davidhalter/jedi-vim' " for python autocomplete
+Plugin 'nvie/vim-flake8'
+" 
+" Golang
+Plugin 'fatih/vim-go'
+" 
+" option (not for other's PC)
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Valloric/YouCompleteMe' 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -62,6 +75,7 @@ set number
 
 let python_highlight_all=1
 syntax on
+" set background=light
 set background=dark
 
 set ts=4
@@ -84,6 +98,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+map <F6> <C-W><
+map <F7> <C-W>>
+
 set laststatus=2
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 
@@ -99,8 +116,22 @@ let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:ycm_autoclose_preview_window_after_completion = 1
 
+if !exists("g:ycm_semantic_triggers")
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 nnoremap <leader>gg :YcmCompleter GoToImprecise<CR>
 nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
 nnoremap <leader>p :YcmCompleter GetParent<CR>
+
+
+"" for tag list"
+let Tlist_Use_Right_Window  =1
+
+
+"" my custom shortcut
+map <F4> gg v G =
+map <F3> :TlistToggle<CR>
+map <F2> :NERDTreeToggle<CR>
