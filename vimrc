@@ -24,12 +24,12 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/tComment'
 "
 " Web
 Plugin 'mattn/emmet-vim'
-Plugin 'vim-scripts/tComment'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'magarcia/vim-angular2-snippets'
+" Plugin 'leafgarland/typescript-vim'
+" Plugin 'magarcia/vim-angular2-snippets'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 "
@@ -106,6 +106,9 @@ set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 
 set visualbell
 
+set foldmethod=syntax  
+set nofoldenable
+
 filetype indent on
 filetype plugin indent on
 
@@ -130,8 +133,14 @@ nnoremap <leader>p :YcmCompleter GetParent<CR>
 "" for tag list"
 let Tlist_Use_Right_Window  =1
 
+set tags=./tags
+
 
 "" my custom shortcut
 map <F4> gg v G =
 map <F3> :TlistToggle<CR>
 map <F2> :NERDTreeToggle<CR>
+
+" for convinience
+map ; :
+
