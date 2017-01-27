@@ -27,22 +27,22 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/tComment'
 "
 " Web
-Plugin 'mattn/emmet-vim'
+" Plugin 'mattn/emmet-vim'
 " Plugin 'leafgarland/typescript-vim'
 " Plugin 'magarcia/vim-angular2-snippets'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'honza/vim-snippets'
 "
 " python
-Plugin 'davidhalter/jedi-vim' " for python autocomplete
-Plugin 'nvie/vim-flake8'
+" Plugin 'davidhalter/jedi-vim' " for python autocomplete
+" Plugin 'nvie/vim-flake8'
 " 
 " Golang
-Plugin 'fatih/vim-go'
+" Plugin 'fatih/vim-go'
 " 
 " option (not for other's PC)
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'Valloric/YouCompleteMe' 
+" Plugin 'Valloric/YouCompleteMe' 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

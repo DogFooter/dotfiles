@@ -1,11 +1,13 @@
 # Someting you need to do
 
-1. Edit crontab
- 1) updtae vimrc
- 1-2. update
-2.
+1. excute application.sh
+`sh application.sh`
+
+2. install vim plugin
+`vim +PluginInstall`
 
 
+## this is for author
 ## 1. Edit crontab
     $ crontab -e
 ### 1-1 update vimrc
