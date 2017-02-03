@@ -42,8 +42,6 @@ if $overwriteVimrc; then
     if [ -f ~/.vimrc ]
     then
         rm ~/.vimrc;
-    else
-        ln -s `pwd`/vimrc ~/.vimrc
     fi
     
     if $isAdmin; then
@@ -53,7 +51,7 @@ if $overwriteVimrc; then
     fi
 
 fi
-ehoc_ "~/.vimrc done"
+echo_ "~/.vimrc done"
 
 # vim plugin install
 

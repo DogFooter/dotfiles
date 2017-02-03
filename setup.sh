@@ -28,7 +28,7 @@ author's site:      https://dogfooter.github.io
 
 "
 while true; do
-    read -p "Is this first setup? (Now just install vim) [YyNn] : " yn
+    read -p "Is this first setup? (Now just install vim, It requires superuser) [YyNn] : " yn
     case $yn in
         [Yy]* ) ./primary.sh; break;;
         [Nn]* ) break;;

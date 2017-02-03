@@ -1,9 +1,9 @@
 # Someting you need to do
 
 ```bash
-sudo ./setup
+./setup
 ```
 or
 ```bash
-sudo bash ./setup
+bash ./setup
 ```
