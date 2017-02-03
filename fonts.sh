@@ -1,15 +1,23 @@
 #!/bin/bash
-# this script is for first deploy
 
-if [ -e ~/.vim/bundle/Vundle.vim ]; then
-    clear
-else
-    mkdir -p ~/.vim/bundle
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-fi
+function echo_() {
+    echo "[$0]" $1
+}
 
-# make link in vimrc ( for git update )
-rm ~/.vimrc;ln -s `pwd`/vimrc ~/.vimrc
+echo_ "Install 'Inconsolata' font"
+apt-get install ttf-inconsolata
+
+echo_ "PowerlineSymbols"
+
+
+while true; do
+    read -p "Do you agree install PowerlineSymbols fonts? [YyNn] : " yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) echo_ "Done"; exit; break;;
+        * ) echo "Only Y y N n";;
+    esac
+done
 
 
 if [ -e /usr/share/fonts/PowerlineSymbols.otf ]; then
@@ -19,3 +27,4 @@ if [ -e /usr/share/fonts/PowerlineSymbols.otf ]; then
     sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 fi
 
+echo_ "Done"
