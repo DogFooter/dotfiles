@@ -25,24 +25,24 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/tComment'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 "
 " Web
-" Plugin 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim'
 " Plugin 'leafgarland/typescript-vim'
 " Plugin 'magarcia/vim-angular2-snippets'
-" Plugin 'garbas/vim-snipmate'
-" Plugin 'honza/vim-snippets'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 "
 " python
-" Plugin 'davidhalter/jedi-vim' " for python autocomplete
-" Plugin 'nvie/vim-flake8'
+Plugin 'davidhalter/jedi-vim' " for python autocomplete
+Plugin 'nvie/vim-flake8'
 " 
 " Golang
-" Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 " 
 " option (not for other's PC)
-" Plugin 'Valloric/YouCompleteMe' 
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Valloric/YouCompleteMe' 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -112,29 +112,27 @@ set nofoldenable
 filetype indent on
 filetype plugin indent on
 
-" If you use Youcompleteme remove comments
-" let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-" let g:ycm_confirm_extra_conf = 0
-"
-" let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
-" let g:ycm_autoclose_preview_window_after_completion = 1
-"
-" if !exists("g:ycm_semantic_triggers")
-"     let g:ycm_semantic_triggers = {}
-" endif
-" let g:ycm_semantic_triggers['typescript'] = ['.']
-" nnoremap <leader>g :YcmCompleter GoTo<CR>
-" nnoremap <leader>gg :YcmCompleter GoToImprecise<CR>
-" nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
-" nnoremap <leader>t :YcmCompleter GetType<CR>
-" nnoremap <leader>p :YcmCompleter GetParent<CR>
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+if !exists("g:ycm_semantic_triggers")
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
+nnoremap <leader>g :YcmCompleter GoTo<CR>
+nnoremap <leader>gg :YcmCompleter GoToImprecise<CR>
+nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>t :YcmCompleter GetType<CR>
+nnoremap <leader>p :YcmCompleter GetParent<CR>
 
 
 "" for tag list"
-" let Tlist_Use_Right_Window  =1
+let Tlist_Use_Right_Window  =1
 
-" ctags tag
 set tags=./tags
 
 
