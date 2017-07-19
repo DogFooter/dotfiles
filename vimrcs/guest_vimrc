@@ -72,6 +72,9 @@ set cindent
 set smartindent
 
 set number
+set relativenumber 
+
+set cursorline
 
 let python_highlight_all=1
 syntax on
@@ -142,6 +145,7 @@ set tags=./tags
 map <F4> gg v G =
 map <F3> :TlistToggle<CR>
 map <F2> :NERDTreeToggle<CR>
+map <F5> :po
 
 " for convinience
 map ; :
