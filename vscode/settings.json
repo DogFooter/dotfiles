@@ -1,0 +1,5 @@
+{
+    "typescript.check.npmIsInstalled": false,
+    "editor.fontFamily": "Monaco, Consolas, 'Courier New', monospace",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
+}
