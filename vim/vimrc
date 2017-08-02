@@ -58,6 +58,8 @@ set expandtab
 set hlsearch
 set ignorecase
 
+set t_Co=256
+
 " for ignore mouse
 set mouse=
 

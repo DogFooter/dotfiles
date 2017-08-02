@@ -1,9 +1,10 @@
 export ZSH=/home/dogfooter/.oh-my-zsh
 export vimrc=~/.vimrc
+export dotfiles=~/Downloads/dotfiles
 # export LANG=en_US.UTF-8
 
 # ZSH_THEME="bira" 
 ZSH_THEME="agnoster" 
 
-plugins=(git zsh-autosuggestions)
+plugins=(git)
 source $ZSH/oh-my-zsh.sh 
