@@ -48,7 +48,6 @@ set cindent
 set smartindent 
 set number
 set relativenumber 
-set cursorline 
 let python_highlight_all=1
 syntax on
 " set background=light
@@ -59,12 +58,22 @@ set expandtab
 set hlsearch
 set ignorecase
 
+" for ignore mouse
+set mouse=
+
 " start with end of work
 " https://medium.com/sunhyoups-story/vim-%EC%97%90%EB%94%94%ED%84%B0-%EC%9D%B4%EC%81%98%EA%B2%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-5b6b8d546017#.m38vbbsy0
 au BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
 \ exe "norm g`\"" |
 \ endif
+
+
+" current Cursor line highlight
+set cursorline
+hi cursorline cterm=none ctermbg=Black
+autocmd InsertEnter * highlight  CursorLine cterm=none ctermbg=Black 
+autocmd InsertLeave * highlight  CursorLine cterm=none ctermbg=Black 
 
 set laststatus=2
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
@@ -99,9 +108,7 @@ filetype plugin indent on
 
 " ctags tag
 " set tags=./tags
-" map <F5> :po
-
-
+" map <F5> :po 
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -113,8 +120,8 @@ map <F7> <C-W>>
 
 "" my custom shortcut
 map <F4> gg v G =
-" map <F3> :TlistToggle<CR>
-" map <F2> :NERDTreeToggle<CR>
+map <F3> :FZF<CR>
+map <F2> :NERDTreeToggle<CR>
 
 " for convinience
 map ; :

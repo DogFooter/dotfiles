@@ -41,9 +41,9 @@ fi
 
 #primary setup
 
-unameOut="$(uname -a)"
+unameOut="$(uname -s)"
 case "${unameOut}" in
-    Ubuntu*)    ubuntu/ubuntu-primary.sh ;;
+    Linux*)     ubuntu/ubuntu-primary.sh ;;
     Darwin*)    machine=Mac;;
     CYGWIN*)    machine=Cygwin;;
     MINGW*)     machine=MinGw;;
@@ -61,6 +61,9 @@ if [ $full -eq 1 ]; then
     vim +PlugInstall
     #oh my zsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+    # for auto suggestion
+    git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions 
     cp zsh/zshrc ~/.zshrc 
 fi 
 
