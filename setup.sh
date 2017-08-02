@@ -31,11 +31,13 @@ author's site:      https://dogfooter.github.io
 
 
 " 
-if [ $1 == "full" ]; then
-    full=1
-else
+if [ -z $1 ]; then
     full=0
-fi 
+else
+    if [ $1 == "full" ]; then
+        full=1
+    fi 
+fi
 
 #primary setup
 
