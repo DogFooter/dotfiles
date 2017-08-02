@@ -21,36 +21,47 @@ echo "/_____/\____/\____/_/    \____/\____/ /_/ /_____/_/ |_|  ";
 echo "                                                         ";
 
 echo "dogfooter's setup.sh
+        (now just setup vimrc)
 
 github-repo:        https://github.com/dogfooter/posix-setup
+
+github     :        https://github.com/dogfooter
+another git:        http://git.ajou.ac.kr/dogfooter
 author's site:      https://dogfooter.github.io
 
 
-"
-while true; do
-    read -p "Is this first setup? (Now just install vim, It requires superuser) [YyNn] : " yn
-    case $yn in
-        [Yy]* ) ./primary.sh; break;;
-        [Nn]* ) break;;
-        * ) echo "Only Y y N n";;
-    esac
-done
-while true; do
-    read -p "Do you agree setup VIM? [YyNn] : " yn
-    case $yn in
-        [Yy]* ) ./vimsetting.sh; break;;
-        [Nn]* ) break;;
-        * ) echo "Only Y y N n";;
-    esac
-done
-while true; do
-    read -p "Do you agree setup fonts? [YyNn] : " yn
-    case $yn in
-        [Yy]* ) ./fonts.sh; break;;
-        [Nn]* ) break;;
-        * ) echo "Only Y y N n";;
-    esac
-done
+" 
+if [ $1 == "full" ]; then
+    full=1
+else
+    full=0
+fi 
+
+#primary setup
+
+unameOut="$(uname -a)"
+case "${unameOut}" in
+    Ubuntu*)    ubuntu/ubuntu-primary.sh ;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
+
+#vim setup 
+### vim plug install
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
+cp vim/vimrc ~/.vimrc
+
+if [ $full -eq 1 ]; then
+    vim +PlugInstall
+    #oh my zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    cp zsh/zshrc ~/.zshrc 
+fi 
+
 
 echo "Setup done"
 exit

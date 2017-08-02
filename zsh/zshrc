@@ -1,0 +1,9 @@
+export ZSH=/home/dogfooter/.oh-my-zsh
+export vimrc=~/.vimrc
+# export LANG=en_US.UTF-8
+
+ZSH_THEME="bira" 
+
+plugins=(git)
+source $ZSH/oh-my-zsh.sh 
+
