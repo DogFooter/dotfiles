@@ -1,10 +1,17 @@
-export ZSH=/home/dogfooter/.oh-my-zsh
-export vimrc=~/.vimrc
-export dotfiles=~/Downloads/dotfiles
-# export LANG=en_US.UTF-8
+# default setup
+export ZSH=~/.oh-my-zsh 
+plugins=(git)
+source $ZSH/oh-my-zsh.sh 
 
+# theme setup
 # ZSH_THEME="bira" 
 ZSH_THEME="agnoster" 
 
-plugins=(git)
-source $ZSH/oh-my-zsh.sh 
+# FZF setup
+export FZF_HOME=~/.fzf
+export PATH=$PATH:$FZF_HOME/bin 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# custom aliases
+alias gp='ggpush'
+alias rm='rm -i'

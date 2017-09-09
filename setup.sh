@@ -43,7 +43,7 @@ fi
 
 unameOut="$(uname -s)"
 case "${unameOut}" in
-    Linux*)     ubuntu/ubuntu-primary.sh ;;
+    Linux*)     ubuntu/ubuntu-primary.sh;;
     Darwin*)    machine=Mac;;
     CYGWIN*)    machine=Cygwin;;
     MINGW*)     machine=MinGw;;
@@ -65,6 +65,7 @@ if [ $full -eq 1 ]; then
     # for auto suggestion
     git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions 
     cp zsh/zshrc ~/.zshrc 
+    source ~/.zshrc
 fi 
 
 
