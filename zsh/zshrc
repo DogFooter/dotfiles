@@ -1,17 +1,104 @@
-# default setup
-export ZSH=~/.oh-my-zsh 
-plugins=(git)
-source $ZSH/oh-my-zsh.sh 
+export ZSH=/Users/dogfooter/.oh-my-zsh 
+export HOME=/Users/dogfooter
 
-# theme setup
-# ZSH_THEME="bira" 
-ZSH_THEME="agnoster" 
+export DRACULA_THEME=/Users/dogfooter/Public/dracula
+export OH_MY_ZSH=/Users/dogfooter/.oh-my-zsh
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
-# FZF setup
-export FZF_HOME=~/.fzf
-export PATH=$PATH:$FZF_HOME/bin 
+export EDITOR=/usr/local/bin/vim 
+export TERM="xterm-256color"
+
+export ZSHRC=/Users/dogfooter/.zshrc
+export VIMRC=/Users/dogfooter/.vimrc
+
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="dognoster"
+# ZSH_THEME="bira"
+# ZSH_THEME="dog-bira"
+# ZSH_THEME="dracula"
+plugins=(git svn) 
+source $ZSH/oh-my-zsh.sh
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# custom aliases
-alias gp='ggpush'
-alias rm='rm -i'
+
+# pip should only run if there is a virtualenv currently activated
+# export PIP_REQUIRE_VIRTUALENV=true
+# cache pip-installed packages to avoid re-downloading
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+
+# global pip
+syspip(){
+    PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
+chrome() {
+    open -a "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome" "$1"
+}
+
+fode() {
+    code `fzf`
+}
+
+fim() {
+    vim `fzf`
+}
+
+fkill() {
+    kill $(ps ax | fzf | awk {'print $1'})
+}
+
+fdkrps() {
+    docker ps -a | fzf | awk {'print $1'}
+}
+
+
+## for svn. git like function
+prompt_svn() {
+    local rev branch
+    if in_svn; then
+        rev=$(svn_get_rev_nr)
+        branch=$(svn_get_branch_name)
+        if [ `svn_dirty_choose_pwd 1 0` -eq 1  ]; then
+            prompt_segment yellow black
+            echo -n "$rev@$branch"
+            echo -n "±"
+        else
+            prompt_segment green black
+            echo -n "$rev@$branch"
+        fi
+    fi
+
+}
+
+build_prompt() {
+    RETVAL=$?
+    prompt_status
+    prompt_context
+    prompt_dir
+    prompt_git
+    prompt_svn
+    prompt_end 
+}
+
+
+## for nginx
+nginx-intern() {
+    sudo nginx -s stop
+    sudo nginx -c $NGINX/nginx.intern.conf
+}
+export NGINX=/usr/local/etc/nginx
+export WWW=/usr/local/var/www
+
+
+alias gs='git status'
+alias gl='git log --all --graph --decorate --abbrev-commit'
+alias vi='vim'
+alias ctags="`brew --prefix`/bin/ctags"
+alias typora="open -a typora"
+
+source $HOME/playground/zsh/svn_fzf.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
