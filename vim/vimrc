@@ -3,6 +3,9 @@
 " @email dogfooter219@gmail.com
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" set shell=/bin/zsh
+
 "My Custom Installed Plugins
 " Plugin with vim-plug
 call plug#begin('~/.vim/plugged')
@@ -13,10 +16,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/tComment'
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Plug 'vim-syntastic/syntastic'
 
 "
 " Web
@@ -44,8 +47,13 @@ Plug 'nvie/vim-flake8'
 " Plug 'Valloric/YouCompleteMe' 
 Plug 'Shougo/neocomplete.vim'
 
+" Scala
+
+" Git
+" Plug 'airblade/vim-gitgutter'
+
 " theme
-" Plug 'dracula/vim'
+Plug 'dracula/vim'
 
 " my-own
 Plug 'dogfooter/FIP.vim'
@@ -65,11 +73,11 @@ set number
 set relativenumber 
 let python_highlight_all=1
 syntax on
-" set background=light
-set background=dark
+set background=light
+" set background=dark
 " colorscheme solarized
 " color dracula
-colorscheme Tomorrow-Night
+" colorscheme Tomorrow-Night
 set ts=4
 set shiftwidth=4
 set expandtab 
@@ -90,10 +98,10 @@ au BufReadPost *
 
 
 " current Cursor line highlight
-set cursorline
-hi cursorline cterm=none ctermbg=Black
-autocmd InsertEnter * highlight  CursorLine cterm=none ctermbg=Black 
-autocmd InsertLeave * highlight  CursorLine cterm=none ctermbg=Black 
+" set cursorline
+" hi cursorline cterm=none ctermbg=Black
+" autocmd InsertEnter * highlight  CursorLine cterm=none ctermbg=Black 
+" autocmd InsertLeave * highlight  CursorLine cterm=none ctermbg=Black 
 
 let g:user_emmet_expandabbr_key = '<c-e>'
 
@@ -155,6 +163,9 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
+" git-gutter
+let g:gitgutter_realtime = 0
+
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
@@ -195,12 +206,13 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " crontab vim enable
 au FileType crontab setlocal bkc=yes
 
+au FileType yaml setl sw=2 sts=2 et
 
 "" for tag list"
 " let Tlist_Use_Right_Window  =1
 
 " ctags tag
-set tags=./tags,tags
+set tags=tags
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
