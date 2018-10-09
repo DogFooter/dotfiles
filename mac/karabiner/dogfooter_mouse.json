@@ -1,0 +1,55 @@
+{
+  "title": "dogfooter Mouse",
+  "rules": [
+    {
+      "description": "DM: button4 to left_control + right_arror",
+      "manipulators": [
+        {
+          "from": {
+            "pointing_button": "button4",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                  "left_control"
+              ] 
+            }
+          ],
+          "type": "basic"
+
+        }
+      ]
+    },
+    {
+      "description": "DM: button5 to left_control + left_arror",
+      "manipulators": [
+        {
+          "from": {
+            "pointing_button": "button5",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                      "left_control"
+              ] 
+            }
+          ],
+          "type": "basic"
+
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "title": "dogfooter Keyboard",
+  "rules": [
+    {
+      "description": "DK: capslock to left_control",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "type": "basic"
+
+        }
+      ]
+    },
+    {
+      "description": "DK: left_alt, left_qui, g to google scholar",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+                "mandatory": [
+                    "command",
+                    "option"
+                ],
+                "optional": [
+                    "any"
+                ]
+            }
+          },
+          "to": [
+              {
+                  "key_code": "c",
+                  "modifiers": [
+                      "command"
+                  ] 
+              },
+
+            {
+              "shell_command": "osascript /Users/dogfooter/playground/utils/custom-bins/karabiner/google_scholar.scpt"
+            }
+          ],
+          "type": "basic"
+
+        }
+      ]
+    }
+
+  ]
+}
