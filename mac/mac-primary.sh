@@ -1,7 +1,6 @@
 #!/bin/bash
 
 brew install -y vim git zsh curl
-brew insatll -y gnome-tweak-tool
 
 # powerline font
 # git clone https://github.com/powerline/fonts.git
