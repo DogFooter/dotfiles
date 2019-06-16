@@ -1,7 +1,7 @@
 export ZSH=/Users/dogfooter/.oh-my-zsh 
 export HOME=/Users/dogfooter
 
-export DRACULA_THEME=/Users/dogfooter/Public/dracula
+# export DRACULA_THEME=/Users/dogfooter/Public/dracula
 export OH_MY_ZSH=/Users/dogfooter/.oh-my-zsh
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
@@ -12,17 +12,23 @@ export ZSHRC=/Users/dogfooter/.zshrc
 export VIMRC=/Users/dogfooter/.vimrc
 
 # ZSH_THEME="robbyrussell"
+# ZSH_THEME="fishy"
+# ZSH_THEME="astm"
 ZSH_THEME="agnoster"
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 # ZSH_THEME="dognoster"
 # ZSH_THEME="bira"
 # ZSH_THEME="dog-bira"
 # ZSH_THEME="dracula"
-plugins=(git svn) 
+# ZSH_THEME="avit"
+plugins=(
+    git
+#    svn 
+    # zsh-syntax-highlighting
+) 
 source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 
 # pip should only run if there is a virtualenv currently activated
 # export PIP_REQUIRE_VIRTUALENV=true
@@ -54,44 +60,12 @@ fdkrps() {
     docker ps -a | fzf | awk {'print $1'}
 }
 
-
-## for svn. git like function
-prompt_svn() {
-    local rev branch
-    if in_svn; then
-        rev=$(svn_get_rev_nr)
-        branch=$(svn_get_branch_name)
-        if [ `svn_dirty_choose_pwd 1 0` -eq 1  ]; then
-            prompt_segment yellow black
-            echo -n "$rev@$branch"
-            echo -n "±"
-        else
-            prompt_segment green black
-            echo -n "$rev@$branch"
-        fi
-    fi
-
+upload() {
+    scp "$@" dogfooter@wise-own:~/sftp/
 }
 
-build_prompt() {
-    RETVAL=$?
-    prompt_status
-    prompt_context
-    prompt_dir
-    prompt_git
-    prompt_svn
-    prompt_end 
-}
-
-
-## for nginx
-nginx-intern() {
-    sudo nginx -s stop
-    sudo nginx -c $NGINX/nginx.intern.conf
-}
 export NGINX=/usr/local/etc/nginx
 export WWW=/usr/local/var/www
-
 
 alias gs='git status'
 alias gl='git log --all --graph --decorate --abbrev-commit'
@@ -99,6 +73,18 @@ alias vi='vim'
 alias ctags="`brew --prefix`/bin/ctags"
 alias typora="open -a typora"
 
-source $HOME/playground/zsh/svn_fzf.zsh
+alias wise='ssh wise-lab' 
+
+# pretty json
+alias prettyJSON='python -m json.tool'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export SPARK_HOME='/usr/local/spark'
+export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home'
+export SCALA_HOME='/usr/local/scala'
+export SBT_HOME='/usr/local/sbt'
+
+export GRADUATE_HOME='~/GooleDrive/share/graduate'
+source /Users/dogfooter/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /Users/dogfooter/playground/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

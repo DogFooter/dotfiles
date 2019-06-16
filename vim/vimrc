@@ -13,30 +13,32 @@ call plug#begin('~/.vim/plugged')
 " basic
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/tComment'
-Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'vim-airline/vim-airline'
 " Plug 'vim-syntastic/syntastic'
+
+
+" C++
+Plug 'vhdirk/vim-cmake'
 
 "
 " Web
-Plug 'mattn/emmet-vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'magarcia/vim-angular2-snippets'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'pangloss/vim-javascript'
-Plug 'jelera/vim-javascript-syntax', {'for': ['.js']}
+" Plug 'mattn/emmet-vim'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'magarcia/vim-angular2-snippets'
+" Plug 'garbas/vim-snipmate'
+" Plug 'honza/vim-snippets'
+" Plug 'pangloss/vim-javascript'
+" Plug 'jelera/vim-javascript-syntax', {'for': ['.js']}
 
 " Vue
-Plug 'posva/vim-vue'
+" Plug 'posva/vim-vue'
 
 "
 " python
-Plug 'davidhalter/jedi-vim' " for python autocomplete
+" Plug 'davidhalter/jedi-vim' " for python autocomplete
 Plug 'nvie/vim-flake8'
 
 " 
@@ -53,7 +55,9 @@ Plug 'Shougo/neocomplete.vim'
 " Plug 'airblade/vim-gitgutter'
 
 " theme
-Plug 'dracula/vim'
+" Plug 'dracula/vim'
+" Plug 'altercation/vim-colors-solarized'
+
 
 " my-own
 Plug 'dogfooter/FIP.vim'
@@ -73,8 +77,8 @@ set number
 set relativenumber 
 let python_highlight_all=1
 syntax on
-set background=light
-" set background=dark
+" set background=light
+set background=dark
 " colorscheme solarized
 " color dracula
 " colorscheme Tomorrow-Night
@@ -202,6 +206,10 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+
+
+" alrline tab
+let g:airline#extensions#tabline#enabled = 1
 
 " crontab vim enable
 au FileType crontab setlocal bkc=yes
