@@ -13,7 +13,7 @@ export VIMRC=/Users/dogfooter/.vimrc
 
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="fishy"
-# ZSH_THEME="astm"
+# ZSH_THEME="pure"
 ZSH_THEME="agnoster"
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 # ZSH_THEME="dognoster"
@@ -86,5 +86,7 @@ export SCALA_HOME='/usr/local/scala'
 export SBT_HOME='/usr/local/sbt'
 
 export GRADUATE_HOME='~/GooleDrive/share/graduate'
-source /Users/dogfooter/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /Users/dogfooter/playground/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+export PATH="/usr/local/anaconda3/bin:$PATH"

@@ -24,6 +24,66 @@
       ]
     },
     {
+      "description": "DK: fn with n",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+                "mandatory": [
+                    "fn"
+                ]
+                ,
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [ 
+                  "left_control"
+              ]
+
+            }
+          ],
+          "type": "basic"
+
+        }
+      ]
+    },
+    {
+      "description": "DK: fn with b",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+                "mandatory": [
+                    "fn"
+                ]
+                ,
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [ 
+                  "left_control"
+              ]
+
+            }
+          ],
+          "type": "basic"
+
+        }
+      ]
+    },
+    {
       "description": "DK: left_alt, left_qui, g to google scholar",
       "manipulators": [
         {

@@ -61,12 +61,13 @@ if [ $full -eq 1 ]; then
     vim +PlugInstall
     #oh my zsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-    # for auto suggestion
-    # git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions 
-    # cp zsh/zshrc ~/.zshrc 
-    source ~/.zshrc
 fi 
+
+cp tmux/tmux.conf ~/.tmux.conf 
+cp zsh/zshrc ~/.zshrc
+
+sh ./zsh-syn-high.sh
+cp zsh/zshrc ~/.zshrc
 
 
 echo "Setup done"
