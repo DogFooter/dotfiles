@@ -2,3 +2,4 @@ vim
 git
 zsh
 tmux
+youtube-dl
