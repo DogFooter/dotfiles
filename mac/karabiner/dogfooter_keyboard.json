@@ -84,6 +84,37 @@
       ]
     },
     {
+      "description": "DK: fn with c is Highlight on PDF",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+                "mandatory": [
+                    "fn"
+                ]
+                ,
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "h",
+              "modifiers": [ 
+                  "left_control",
+                  "command"
+              ]
+
+            }
+          ],
+          "type": "basic"
+
+        }
+      ]
+    },
+    {
       "description": "DK: left_alt, left_qui, g to google scholar",
       "manipulators": [
         {
