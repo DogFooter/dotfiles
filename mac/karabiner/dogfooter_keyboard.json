@@ -115,6 +115,37 @@
       ]
     },
     {
+      "description": "DK: fn with v is Note on PDF",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+                "mandatory": [
+                    "fn"
+                ]
+                ,
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "n",
+              "modifiers": [ 
+                  "left_control",
+                  "command"
+              ]
+
+            }
+          ],
+          "type": "basic"
+
+        }
+      ]
+    },
+    {
       "description": "DK: left_alt, left_qui, g to google scholar",
       "manipulators": [
         {
