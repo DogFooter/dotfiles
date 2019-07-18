@@ -75,6 +75,8 @@ alias typora="open -a typora"
 
 alias wise='ssh wise-lab' 
 
+alias mp3dl='youtube-dl --extract-audio --audio-format mp3'
+
 # pretty json
 alias prettyJSON='python -m json.tool'
 
