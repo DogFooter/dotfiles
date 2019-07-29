@@ -11,6 +11,8 @@ export TERM="xterm-256color"
 export ZSHRC=/Users/dogfooter/.zshrc
 export VIMRC=/Users/dogfooter/.vimrc
 
+export DOTFILES=~/playground/dotfiles
+
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="fishy"
 # ZSH_THEME="pure"
@@ -80,6 +82,10 @@ alias mp3dl='youtube-dl --extract-audio --audio-format mp3'
 # pretty json
 alias prettyJSON='python -m json.tool'
 
+
+# zshrc change
+alias edit-zsh='vim $DOTFILES/zsh/zshrc&&cp $DOTFILES/zsh/zshrc ~/.zshrc;source ~/.zshrc'
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export SPARK_HOME='/usr/local/spark'
@@ -92,3 +98,5 @@ source /Users/dogfooter/playground/dotfiles/zsh-syntax-highlighting/zsh-syntax-h
 
 
 export PATH="/usr/local/anaconda3/bin:$PATH"
+
+export LC_ALL=ko_KR.UTF-8
