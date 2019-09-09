@@ -82,6 +82,8 @@ alias mp3dl='youtube-dl --extract-audio --audio-format mp3'
 # pretty json
 alias prettyJSON='python -m json.tool'
 
+# ls fzf preview
+alias pzp='ls | fzf --preview "cat {}"'
 
 # zshrc change
 alias edit-zsh='vim $DOTFILES/zsh/zshrc&&cp $DOTFILES/zsh/zshrc ~/.zshrc;source ~/.zshrc'
