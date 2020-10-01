@@ -1,3 +1,11 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+ZSH_DISABLE_COMPFIX="true"
 export ZSH=/Users/dogfooter/.oh-my-zsh 
 export HOME=/Users/dogfooter
 
@@ -14,18 +22,10 @@ export VIMRC=/Users/dogfooter/.vimrc
 export DOTFILES=~/playground/dotfiles
 
 # ZSH_THEME="robbyrussell"
-# ZSH_THEME="fishy"
-# ZSH_THEME="pure"
-ZSH_THEME="agnoster"
-# ZSH_THEME="powerlevel9k/powerlevel9k"
-# ZSH_THEME="dognoster"
-# ZSH_THEME="bira"
-# ZSH_THEME="dog-bira"
-# ZSH_THEME="dracula"
-# ZSH_THEME="avit"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
     git
-#    svn 
+    # svn 
     # zsh-syntax-highlighting
 ) 
 source $ZSH/oh-my-zsh.sh
@@ -57,25 +57,9 @@ fim() {
 fkill() {
     kill $(ps ax | fzf | awk {'print $1'})
 }
-
-fdkrps() {
-    docker ps -a | fzf | awk {'print $1'}
-}
-
-upload() {
-    scp "$@" dogfooter@wise-own:~/sftp/
-}
-
-export NGINX=/usr/local/etc/nginx
-export WWW=/usr/local/var/www
-
 alias gs='git status'
 alias gl='git log --all --graph --decorate --abbrev-commit'
 alias vi='vim'
-alias ctags="`brew --prefix`/bin/ctags"
-alias typora="open -a typora"
-
-alias wise='ssh wise-lab' 
 
 alias mp3dl='youtube-dl --extract-audio --audio-format mp3'
 
@@ -86,19 +70,12 @@ alias prettyJSON='python -m json.tool'
 alias pzp='ls | fzf --preview "cat {}"'
 
 # zshrc change
-alias edit-zsh='vim $DOTFILES/zsh/zshrc&&cp $DOTFILES/zsh/zshrc ~/.zshrc;source ~/.zshrc'
+# alias edit-zsh='vim $DOTFILES/zsh/zshrc&&cp $DOTFILES/zsh/zshrc ~/.zshrc;source ~/.zshrc'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-export SPARK_HOME='/usr/local/spark'
-export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home'
-export SCALA_HOME='/usr/local/scala'
-export SBT_HOME='/usr/local/sbt'
-
-export GRADUATE_HOME='~/GooleDrive/share/graduate'
-source /Users/dogfooter/playground/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-export PATH="/usr/local/anaconda3/bin:$PATH"
 
 export LC_ALL=ko_KR.UTF-8
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

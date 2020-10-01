@@ -1,10 +1,8 @@
 google-chrome
-iterm2
 sourcetree 
 alfred
 karabiner-elements 
 macs-fan-control
 bartender
-slack
 mos
 quicklook-json 
