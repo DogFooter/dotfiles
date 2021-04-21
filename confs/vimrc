@@ -21,9 +21,9 @@ Plug 'vim-airline/vim-airline'
 
 
 " snipet
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
+" Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'tomtom/tlib_vim'
+" Plug 'garbas/vim-snipmate'
 
 
 " C++
@@ -44,7 +44,7 @@ Plug 'garbas/vim-snipmate'
 "
 " python
 " Plug 'davidhalter/jedi-vim' " for python autocomplete
-Plug 'nvie/vim-flake8'
+" Plug 'nvie/vim-flake8'
 
 " 
 " Golang

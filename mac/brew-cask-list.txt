@@ -1,8 +1,0 @@
-google-chrome
-sourcetree 
-alfred
-karabiner-elements 
-macs-fan-control
-bartender
-mos
-quicklook-json 

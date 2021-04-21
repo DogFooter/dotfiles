@@ -31,43 +31,35 @@ author's site:      https://dogfooter.github.io
 
 
 " 
-if [ -z $1 ]; then
-    full=0
-else
-    if [ $1 == "full" ]; then
-        full=1
-    fi 
-fi
-
 #primary setup
 
 unameOut="$(uname -s)"
 case "${unameOut}" in
-    Linux*)     ubuntu/ubuntu-primary.sh;;
-    Darwin*)    mac/mac-primary.sh;;
-    CYGWIN*)    machine=Cygwin;;
-    MINGW*)     machine=MinGw;;
-    *)          machine="UNKNOWN:${unameOut}"
+    Darwin*)    echo "do it";;
+    *)          echo "Only for macos" & exit;;
 esac
 
+# install brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# brew install
+brew bundle --file confs/Brewfile
 
 #vim setup 
 ### vim plug install
 
+cp confs/vimrc ~/.vimrc
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
-cp vim/vimrc ~/.vimrc
+vim +PlugInstall
 
-if [ $full -eq 1 ]; then
-    vim +PlugInstall
-    #oh my zsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-fi 
+# oh my zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+cat confs/zshrc >> ~/.zshrc
 
-cp tmux/tmux.conf ~/.tmux.conf 
-cp zsh/zshrc ~/.zshrc
+cp confs/tmux.conf ~/.tmux.conf 
 
-sh ./zsh-syn-high.sh
-cp zsh/zshrc ~/.zshrc
+source ~/.zshrc
+
 
 
 echo "Setup done"

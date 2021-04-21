@@ -1,0 +1,29 @@
+# formulae
+brew "vim"
+brew "tmux"
+brew "mas"
+brew "nvm"
+
+# cask
+cask "visual-studio-code"
+cask "google-chrome"
+cask "firefox"
+cask "notion"
+cask "discord" 
+cask "authy"
+cask "coconutbattery"
+cask "fliqlo" 
+cask "alfred"
+cask "telegram-desktop"
+cask "keka" 
+cask "intellij-idea-ce"
+cask "mos"
+
+# mas
+mas "KakaoTalk", id: 869223134
+mas "Magnet", id: 441258766
+mas "GrabIt", id: 450166997
+mas "Between", id: 1320741520
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "FileZilla Pro - FTP and Cloud", id: 1298486723 
+mas "미세먼지 코리아", id: 1351084155
