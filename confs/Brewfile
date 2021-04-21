@@ -18,6 +18,7 @@ cask "telegram-desktop"
 cask "keka" 
 cask "intellij-idea-ce"
 cask "mos"
+cask "sourcetree"
 
 # mas
 mas "KakaoTalk", id: 869223134
